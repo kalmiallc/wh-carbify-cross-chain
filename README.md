@@ -1,4 +1,4 @@
-# Whormhole Carbify cross chain demo
+# Wormhole Carbify cross chain demo
 
 This repository contains source code for the [Carbify](https://www.carbify.io) cross chain communication sample.
 Carbify is an EcoFi RWA project. Their mission is to plant trees which reduce the Carbon footprint. Each tree is connected with an NFT.
