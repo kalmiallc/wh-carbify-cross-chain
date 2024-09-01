@@ -20,6 +20,7 @@ async function main() {
 
   // Quote wormhole fee for crosschain call CELO > MOONBEAM
   const wormholeFee = (await wormholeRelayer.quoteEVMDeliveryPrice(targetChain, receiverValue, gasLimit))[0];
+  console.log(`Wormhole fee: ${wormholeFee}`);
 
   const tx = await nftTree.mint(
     owner.address, 

@@ -5,8 +5,7 @@ require("hardhat-contract-sizer");
 require("solidity-coverage");
 
 const { 
-  privateKeyMainnet, 
-  baseSepoliaRPC,
+  privateKeyTestnet, 
   baseScanApiKey,
   moonbaseAlpha,
   celoTestnet,
@@ -49,11 +48,11 @@ module.exports = {
       hardfork: "shanghai",
     },
     baseSepolia: {
-      url: baseSepoliaRPC, 
+      url: "https://sepolia.base.org", 
       chainId: 84532,
       gasPrice: 100000000, // 0.1gwei
       gas: 2000000,
-      accounts: [privateKeyMainnet],
+      accounts: [privateKeyTestnet],
       explorer: "https://sepolia.basescan.org/",
       wormholeId: 10004,
       wormholeRelayer: "0x93BAD53DDfB6132b0aC8E37f6029163E63372cEE",
@@ -64,7 +63,7 @@ module.exports = {
       chainId: 1287,
       gasPrice: 5000000000, // 5gwei
       gas: 2000000,
-      accounts: [privateKeyMainnet],
+      accounts: [privateKeyTestnet],
       explorer: "https://moonbase.moonscan.io/",
       wormholeId: 16,
       wormholeRelayer: "0x0591C25ebd0580E0d4F27A82Fc2e24E7489CB5e0",
@@ -72,9 +71,9 @@ module.exports = {
     celoTestnet: {
       url: 'https://alfajores-forno.celo-testnet.org', 
       chainId: 44787,
-      gasPrice: 10000000000, // 10gwei
-      gas: 2000000,
-      accounts: [privateKeyMainnet],
+      gasPrice: 100000000000, // 10gwei
+      gas: 7000000,
+      accounts: [privateKeyTestnet],
       explorer: "https://alfajores.celoscan.io/",
       wormholeId: 14,
       wormholeRelayer: "0x306B68267Deb7c5DfCDa3619E22E9Ca39C374f84",
