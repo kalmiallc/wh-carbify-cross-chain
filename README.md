@@ -1,7 +1,7 @@
 # Whormhole Carbify cross chain demo
 
 This repository contains source code for the [Carbify](https://www.carbify.io) cross chain communication sample.
-Carbify is an EcoFi RWA project. Their mission is to plant trees which reduce the Carbon footprint.
+Carbify is an EcoFi RWA project. Their mission is to plant trees which reduce the Carbon footprint. Each tree is connected with an NFT.
 
 The cross chain implementation of the project was developed by [Kalmia](www.kalmia.si).
 
@@ -28,7 +28,7 @@ The solution facilitates the following cross-chain communications:
 
 ![Cross chain communication architecture](./Cross-chain-sample.png)
 
-In our solution, users can mint and hold NFT Trees (ERC-721), which can exist on any blockchain. These trees generate aCO2 tokens (ERC-1155) periodically over time. Each tree is linked to one aCO2 token. aCO2 token is deployed on BASE. The logic for generating aCO2 tokens is stored in the HUB contract, which tracks the state of each NFT Tree. Specifically, the HUB contract needs to know the owner of each tree and the time elapsed since the last aCO2 token was generated. HUB contract is deployed on moonbeam.
+In our solution, users can mint and hold NFT Trees (ERC-721), which can exist on any blockchain. These trees generate aCO2 tokens (ERC-1155) periodically over time. Each tree is linked to aCO2 token. The aCO2 token is deployed on BASE. The logic for generating aCO2 tokens is stored in the HUB contract, which tracks the state of each NFT Tree. Specifically, the HUB contract needs to know the owner of each tree and the time elapsed since the last aCO2 token was generated. HUB contract is deployed on MoonBeam.
 
 The state of HUB determine how users can claim aCO2 tokens. If an NFT Tree is transferred to another user, all unclaimed aCO2 tokens are credited to the previous owner.
 
@@ -44,7 +44,7 @@ The code in this repository essentially supports two main flows:
 
 1. Minting an NFT Tree: In this flow, the NFT Tree is minted on the Alfajores network. We expect the HUB contract to detect the minting event and record the state change in the HUB contract on Moonbase Alpha.
 
-2. Transferring an NFT Tree: In this flow, the NFT Tree is transferred on the Alfajores network. Along with updating the state in the HUB contract, we expect the aCO2 tokens to be automatically claimed on Base Sepolia as part of the transfer process.
+2. Transferring an NFT Tree: In this flow, the NFT Tree ownership is transferred on the Alfajores network. Along with updating the state in the HUB contract, we expect the aCO2 tokens to be automatically claimed on Base Sepolia as part of the transfer process.
 
 ### Getting Started
 
@@ -55,13 +55,7 @@ If you are new to Hardhat, please check the [Hardhat Getting Started Guide](http
    and then run:
 
    ```console
-   yarn
-   ```
-
-   or
-
-   ```console
-   npm install
+   yarn or v
    ```
 
 2. Set up `.sample.secrets.json` file
@@ -75,20 +69,12 @@ If you are new to Hardhat, please check the [Hardhat Getting Started Guide](http
 4. Compile the project
 
     ```console
-    yarn hardhat compile
-    ```
-
-    or
-
-    ```console
-    npx hardhat compile
+    yarn hardhat compile or npx hardhat compile
     ```
 
 5. Deploy
 
-    Check the `hardhat.config.ts` file, where you define which networks you want to interact with. Flare mainnet & test network details are already added in that file.
-
-    Make sure that you have added API Keys in the `.env` file
+    Check the `hardhat.config.ts` file to find the network names. Then run:
 
    ```console
    npx hardhat run --network baseSepolia scripts/deploy-aco2.ts
